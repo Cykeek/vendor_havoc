@@ -12,8 +12,13 @@ endif
 
 TARGET_PRODUCT_SHORT := $(subst havoc_,,$(HAVOC_BUILD_TYPE))
 
+HAVOC_DATE_YEAR := $(shell date -u +%Y)
+HAVOC_DATE_MONTH := $(shell date -u +%m)
+HAVOC_DATE_DAY := $(shell date -u +%d)
+HAVOC_DATE_HOUR := $(shell date -u +%H)
+HAVOC_DATE_MINUTE := $(shell date -u +%M)
 HAVOC_VERSION = LTS
-HAVOC_BUILD_DATE := $(shell date -u +%d-%m-%Y)
+HAVOC_BUILD_DATE := $(HAVOC_DATE_YEAR)$(HAVOC_DATE_MONTH)$(HAVOC_DATE_DAY)
 HAVOC_FINGERPRINT := Havoc-OS/v$(HAVOC_VERSION)/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(shell date -u +%Y%m%d)/$(shell date -u +%H%M)
 
 ifeq ($(WITH_GAPPS),true)
